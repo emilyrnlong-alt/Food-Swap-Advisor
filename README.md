@@ -46,7 +46,7 @@ food-swap-advisor/
 ## Setup
 
 ```bash
-git clone <your-repo-url>
+git clone <Food-Swap_Advisor>
 cd food-swap-advisor
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
