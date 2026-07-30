@@ -1,0 +1,103 @@
+sub_id,original_food_id,substitute_food_id,base_certainty,rationale
+1,1,10,82,"More fiber and protein, similar calories, less added sugar."
+2,2,11,78,"More fiber, fewer calories, similar protein."
+3,3,12,76,Roughly double the fiber for fewer calories.
+4,3,13,70,Complete plant protein with more fiber.
+5,4,14,88,Cuts sodium by more than 75% and adds fiber.
+6,5,15,83,"Far more fiber, meaningfully less sugar per serving."
+7,6,16,72,More fiber and protein at a similar calorie count.
+8,7,17,74,"More fiber and protein, fewer refined carbs."
+9,8,18,85,"Less than half the calories and fat, more fiber."
+10,9,19,70,"More fiber, less sodium."
+11,20,26,68,"Same protein, far less saturated fat and fewer calories."
+12,21,27,55,"Lower fat, though sugar stays similar -- moderate improvement."
+13,22,28,84,Roughly triple the protein at a third of the calories.
+14,23,29,65,"Meaningfully fewer calories and less fat, similar taste."
+15,24,30,73,More protein and over 50% less sodium.
+16,25,28,87,"Roughly double the protein, far less sugar."
+17,31,38,80,"Less saturated fat, similar protein."
+18,32,39,62,"Less fat overall, though sodium stays high -- modest improvement."
+19,33,40,90,"Much less sodium and fat, far more protein per calorie."
+20,34,41,75,Meaningfully less sodium and more protein.
+21,35,42,79,"About 60% less sodium, similar protein."
+22,36,43,81,"Less sodium and fat, similar protein content."
+23,37,41,74,"Less saturated fat, similar protein."
+24,44,51,60,"Lower fat, similar sodium -- a moderate swap."
+25,44,52,85,Far more fiber and protein for fewer calories per serving.
+26,45,52,88,Cuts sodium dramatically while keeping the fiber.
+27,46,53,66,"Less sugar and more fiber, similar calories."
+28,47,54,63,"More fiber and protein, sodium is still notable."
+29,48,55,71,"Meaningfully less sugar, more fiber."
+30,49,56,93,"A fraction of the calories and sugar, real fiber."
+31,50,57,68,"Lower fat and more fiber, similar sodium."
+32,58,64,95,Removes all added sugar and calories.
+33,59,65,82,Real fiber and fewer concentrated sugars.
+34,60,66,66,"Same protein, notably less saturated fat."
+35,61,64,87,Removes added sugar and stimulant-linked additives.
+36,62,68,90,"Same base drink, virtually all the sugar removed."
+37,63,69,58,"Fewer calories and carbs, alcohol content still applies."
+38,70,77,78,"More protein, a fraction of the fat and calories."
+39,71,78,60,"Unsaturated fat profile, though calorie-dense -- use in moderation."
+40,72,79,76,"More protein, notably less fat."
+41,73,80,72,"About two-thirds less sugar, similar flavor."
+42,74,81,70,"Less than half the sugar, more fiber."
+43,75,82,69,Over half the sugar removed.
+44,76,83,65,"Roughly half the sodium, same flavor profile."
+45,84,91,84,"Far more protein per calorie, less sodium and fat."
+46,85,92,73,"More fiber and vitamin A, less fat."
+47,86,93,79,"Less fat and sodium, more fiber from the bun."
+48,87,94,68,"Less sodium and fat, similar protein."
+49,88,95,70,"More fiber, less sodium and fat."
+50,89,96,81,"Less sodium and fat, more protein per calorie."
+51,90,97,74,"More fiber, less sodium and refined carbs."
+52,98,105,67,"Notably less sugar, more fiber and protein."
+53,99,106,75,"Roughly half the sugar, more fiber."
+54,100,107,91,"Real fiber and vitamins, a fraction of the sugar."
+55,101,104,80,"Far less added sugar and sodium, same fiber."
+56,102,108,45,"Some trace nutrients, but sugar content is still very high -- use sparingly."
+57,103,109,86,"No added syrup, real fiber, far less sugar."
+58,110,113,88,"Less than half the calories and fat, similar protein."
+59,111,114,90,"Far less sodium and fat, more protein per calorie."
+60,112,115,74,"Notably fewer calories and less fat, same protein."
+61,116,120,85,"A fraction of the sodium and fat, same vegetable."
+62,117,121,87,"Far less added sugar, more fiber."
+63,118,122,62,"Less fat from frying, sodium is still notable."
+64,119,123,76,Less than half the calories and sugar.
+65,124,126,88,Real fiber and potassium instead of concentrated sugar.
+66,125,127,80,"About half the sugar and calories, same fiber."
+67,128,130,70,"Roughly double the fiber, far less added sugar."
+68,129,131,68,"A third of the sugar, more fiber and protein."
+69,132,137,83,"Far less sodium and sugar, more fiber from vegetables."
+70,133,138,65,"Less sodium and sugar, more fiber."
+71,134,139,60,Notably less sodium from a lighter broth.
+72,135,140,78,"Far less sodium and fat, more protein per calorie."
+73,136,141,75,"More fiber, less sodium and fat."
+74,142,144,72,"Over half the sodium removed, more fiber."
+75,143,145,70,"Over half the sodium removed, similar protein."
+76,146,148,60,"More fiber and protein, less sodium."
+77,147,149,74,"Less sodium and fat, more protein."
+78,150,154,65,"A fraction of the sugar and fat, more protein."
+79,151,155,60,"More fiber and protein, notably less sugar."
+80,152,156,84,No pastry crust means far fewer calories and less sugar.
+81,153,157,68,"Less added sugar, real fruit fiber."
+82,158,160,80,Removes essentially all added sugar.
+83,159,161,65,Far less residual sugar per serving.
+84,162,165,72,Over half the sugar removed.
+85,163,166,62,"Far less added sugar, more fiber and protein."
+86,164,167,70,"Half the sugar, much more protein."
+87,168,171,90,Removes nearly all added sugar and calories.
+88,169,172,68,Far more protein and fewer carbs per calorie.
+89,170,173,75,"Less than half the sugar, more protein."
+90,174,177,82,"Less sugar, more fiber and protein."
+91,175,178,76,"About half the calories and sodium, similar protein."
+92,176,179,65,"Less fat from frying, similar fiber."
+93,180,183,80,"Far less sodium and fat, similar protein."
+94,181,184,78,"Less sodium and fat, more protein."
+95,182,185,70,"More fiber, less sodium and fat."
+96,186,188,78,"A fraction of the carbs and sodium, more fiber."
+97,187,189,68,"More fiber, less sodium."
+98,190,192,60,"Fewer calories and less sugar, same protein."
+99,191,193,65,"Less fat, slightly more protein."
+100,194,197,85,"Far less fat and sodium, more protein."
+101,195,198,68,About half the sugar and sodium.
+102,196,199,78,"Far less sodium and fat, more protein."
