@@ -16,8 +16,7 @@ As someone interested in health and nutrition as a means to better my habits, mo
 - **Side-by-side nutrition-facts-style cards** with per-nutrient color coding (green = improvement, red = worse) vs. the original food.
 - **Certainty score (0–100%)** per substitution, computed with a Bayesian average (see [How certainty is calculated](#how-certainty-is-calculated)).
 - **Upvote / downvote** buttons that immediately shift the certainty score for users that see that swap next.
-- Clean, custom-styled UI (nutrition-label-inspired theme) built entirely in
-  Streamlit + a bit of injected CSS — no separate frontend framework needed.
+- Clean, custom-styled UI (nutrition-label-inspired theme) built in Streamlit (no separate frontend framework needed.)
 
 ## Project structure
 
@@ -58,14 +57,9 @@ python seed_database.py --force
 
 ## How certainty is calculated
 
-Each substitution starts with a **curated `base_certainty`** (0–100), set by
-hand based on how much better the swap is nutritionally (e.g. swapping soda
-for sparkling water removes 100% of the added sugar → 95% base certainty;
-swapping regular beer for light beer is a smaller win → 58%).
+Each substitution starts with a **curated `base_certainty`** (0–100), set based the degree to which the swap is better nutritionally (e.g. swapping soda for sparkling water removes 100% of the added sugar → 95% base certainty; swapping regular beer for light beer is a smaller win → 58%).
 
-To ensure both upvotes and downvotes are weighed equally, the curated score
-is treated as a **prior worth 10 pseudo-votes** and blended with real votes,
-also known as the same idea behind IMDB's weighted movie ratings:
+To ensure both upvotes and downvotes are weighed equally, the curated score is treated as a **prior worth 10 pseudo-votes** and blended with real votes, also known as the same idea behind IMDB's weighted movie ratings:
 
 ```python
 PRIOR_WEIGHT = 10
@@ -75,61 +69,29 @@ prior_downvotes = PRIOR_WEIGHT * (1 - base_certainty / 100)
 certainty = (prior_upvotes + upvotes) / (PRIOR_WEIGHT + upvotes + downvotes) * 100
 ```
 
-With 0 real votes, certainty == base_certainty exactly. As real votes
-accumulate, the score smoothly slides toward the community's actual opinion.
-See `voting.py` for the implementation and `voting.certainty_label()` for
-the "High / Moderate / Low confidence" badge thresholds.
+With 0 real votes, certainty == base_certainty exactly. As real votes accumulate, the score smoothly slides toward the community's actual opinion. See `voting.py` for the implementation and `voting.certainty_label()` for the "High / Moderate / Low confidence" badge thresholds.
 
 ## Data source & accuracy note
 
-Nutrition values are curated, representative figures written in the style
-of the [USDA FoodData Central](https://fdc.nal.usda.gov/) database (per
-100g/100ml), intended for demonstration and learning purposes — **not**
-verified clinical or lab data. `generate_data.py` is the single source of
-truth for the dataset; edit the `FOODS` / `SUBS` lists there and rerun it to
-regenerate the CSVs.
+Nutrition values are curated, representative figures written in the style of the [USDA FoodData Central](https://fdc.nal.usda.gov/) database (per 100g/100ml), intended for demonstration and learning purposes — **not** verified clinical or lab data. `generate_data.py` is the single source of truth for the dataset; edit the `FOODS` / `SUBS` lists there and rerun it to regenerate the CSVs.
 
 ### Swapping in the real USDA API
 
 To pull live, authoritative nutrition data instead of the curated CSVs:
 
 1. Get a free API key at https://fdc.nal.usda.gov/api-key-signup.
-2. Use the `/foods/search` and `/food/{fdcId}` endpoints to fetch a food's
-   `Nutrient` list (calories = `Energy`, fiber = `Fiber, total dietary`,
-   etc.).
-3. Replace the body of `database.get_food_by_name` with an API call (add
-   simple in-memory or SQLite caching so you're not hitting the API on every
-   keystroke — same idea as `app.py`'s `@st.cache_data` on `cached_food_names`).
+2. Use the `/foods/search` and `/food/{fdcId}` endpoints to fetch a food's `Nutrient` list (calories = `Energy`, fiber = `Fiber, total dietary`, etc.).
+3. Replace the body of `database.get_food_by_name` with an API call (add simple in-memory or SQLite caching so you're not hitting the API on every keystroke — same idea as `app.py`'s `@st.cache_data` on `cached_food_names`).
 
 ## Design decisions worth mentioning in an interview
 
-- **SQLite over CSV-only or in-memory dicts**: models the original food ↔
-  substitute relationship as a real many-to-many edge table
-  (`substitutions`), which made "reuse this substitute for multiple
-  originals" trivial and kept vote counts durable across app restarts.
-- **Bayesian-average certainty score** instead of a raw vote ratio, to avoid
-  small-sample overconfidence — a real statistics concept (shrinkage
-  estimation) applied to a practical UI problem.
-- **Separation of concerns**: `database.py` never touches Streamlit,
-  `voting.py` never touches SQL — each module is independently unit-testable.
-- **`st.cache_data`** on the rarely-changing food name list, while
-  deliberately *not* caching vote counts, to balance performance against
-  correctness.
+- **SQLite over CSV-only or in-memory dicts**: models the original food ↔ substitute relationship as a real many-to-many edge table (`substitutions`), which made "reuse this substitute for multiple originals" trivial and kept vote counts durable across app restarts.
+- **Bayesian-average certainty score** instead of a raw vote ratio, to avoid small-sample overconfidence — a real statistics concept (shrinkage estimation) applied to a practical UI problem.
+- **Separation of concerns**: `database.py` never touches Streamlit, `voting.py` never touches SQL — each module is independently unit-testable.
+- **`st.cache_data`** on the rarely-changing food name list, while deliberately *not* caching vote counts, to balance performance against correctness.
 
-## Ideas for extending this (stretch goals)
+## Potential extensions
 
-- Swap the curated CSVs for the live USDA FDC API (see above).
-- Add user accounts so one person can't upvote the same swap twice
-  (currently votes are anonymous/unlimited — a good "known limitation" to
-  mention if asked).
-- A `st.bar_chart` comparing the nutrient deltas visually instead of just
-  the text-based facts card.
-- Deploy to [Streamlit Community Cloud](https://streamlit.io/cloud) for a
-  live demo link on your resume.
-- Add basic tests (`pytest`) for `voting.compute_certainty` and the
-  `database.py` query functions — the module split already makes this easy.
-
-## Tech stack
-
-Python 3.10+, Streamlit, SQLite (via the standard library `sqlite3` module,
-no ORM). No external services or paid APIs required to run it as-is.
+- Swap the curated CSVs for the live USDA FDC API.
+- Add user accounts so one person can't upvote the same swap excessively (currently votes are anonymous/unlimited).
+- A `st.bar_chart` comparing the nutrient deltas visually instead of just the text-based facts card.
