@@ -47,7 +47,7 @@ python seed_database.py           # creates & populates foodswap.db
 streamlit run app.py
 ```
 
-Open the local URL Streamlit prints (usually http://localhost:8501).
+**LOCAL ACCESS**: (https://food-swap-advisor-ewtuw2ojedhzvk386gwvpw.streamlit.app).
 
 To reset your data (wipes votes and reloads from the CSVs):
 
