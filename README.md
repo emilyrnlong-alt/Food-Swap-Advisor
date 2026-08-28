@@ -8,22 +8,14 @@ A Streamlit-run python app that takes a food you eat and suggests healthier alte
 
 ## Why this project
 
-As someone interested in health and nutrition as a means to better my habits, most nutrition apps I have used utilise straightforward data that does not take into consideration the more personal aspects of finding healthier food options like taste, texture and general acceptance of a substitution. This one makes a *recommendation* and is transparent about how confident it is in that recommendation. Over time, as more users utilize the upvotes and  shaped by community feedback, not a fixed
-label. That's the interesting engineering problem here: turning "one curated
-guess + a stream of thumbs up/down" into a single trustworthy score.
+As someone interested in health and nutrition as a means to better my habits, most nutrition apps I have used utilise solely objective data that does not take into consideration the more personal aspects of finding healthier food options like taste, texture and general acceptance of a substitution. This one makes a *recommendation* and is transparent about how confident it is in that recommendation, while taking into consideration more personal preferences like sensory and eating experience. Over time, as more users utilize the upvotes and shaped by community feedback.
 
 ## Features
 
-- **Search or browse** a 109-food nutrition database (109 items covering ~55
-  common foods and their curated healthier substitutes, some substitutes reused
-  across multiple originals — e.g. "grilled chicken breast" replaces both fried
-  chicken and chicken nuggets).
-- **Side-by-side nutrition-facts-style cards** with per-nutrient color coding
-  (green = improvement, red = worse) vs. the original food.
-- **Certainty score (0–100%)** per substitution, computed with a Bayesian
-  average (see [How certainty is calculated](#how-certainty-is-calculated)).
-- **Upvote / downvote** buttons that immediately shift the certainty score
-  for everyone who sees that swap next.
+- **Search or browse** a 109-food nutrition database (109 items covering ~55 common foods and their curated healthier substitutes, some substitutes reused across multiple originals — e.g. "grilled chicken breast" replaces both fried chicken and chicken nuggets).
+- **Side-by-side nutrition-facts-style cards** with per-nutrient color coding (green = improvement, red = worse) vs. the original food.
+- **Certainty score (0–100%)** per substitution, computed with a Bayesian average (see [How certainty is calculated](#how-certainty-is-calculated)).
+- **Upvote / downvote** buttons that immediately shift the certainty score for users that see that swap next.
 - Clean, custom-styled UI (nutrition-label-inspired theme) built entirely in
   Streamlit + a bit of injected CSS — no separate frontend framework needed.
 
