@@ -1,6 +1,6 @@
 # 🥗 Food Swap Advisor
 
-A Streamlit-run python app that takes a food you eat and suggests healthier alternatives by comparing USFD (United States Food Data) nutritional data like calories, fiber, sugar, protein, sodium, and carbs with a **% certainty score** that adapts over time as users upvote or downvote each suggestion.
+A Streamlit-run python app that takes food you eat and suggests healthier alternatives by comparing USFD (United States Food Data) nutritional data like calories, fiber, sugar, protein, sodium, and carbs with a **% certainty score** that adapts over time as users upvote or downvote each suggestion.
 
 ```
 "Potato chips" → 85% certainty → "Air-popped popcorn"  (+more fiber, -sodium, -calories)
