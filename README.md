@@ -75,6 +75,11 @@ With 0 real votes, certainty == base_certainty exactly. As real votes accumulate
 
 Nutrition values are curated, representative figures written in the style of the [USDA FoodData Central](https://fdc.nal.usda.gov/) database (per 100g/100ml), intended for demonstration and learning purposes — **not** verified clinical or lab data. `generate_data.py` is the single source of truth for the dataset; edit the `FOODS` / `SUBS` lists there and rerun it to regenerate the CSVs.
 
+## Artificial Intelligence Usage
+
+In order to accumulate common foods and their healthier substitutes, Anthropic's Claude Sonnet 5 was utilized. It was used to identify common foods and generated the relationships between them, pairing each food with healthier substitutes that could replace it. The AI-generated food data was reviewed before being used. All code, design, and documentation were written by me. Substitution suggestions are AI-generated and are not professional nutrition or medical advice.
+
+
 ### Swapping in the real USDA API
 
 To pull live, authoritative nutrition data instead of the curated CSVs:
